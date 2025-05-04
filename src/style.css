@@ -36,7 +36,7 @@ body {
   display: grid;
   grid-template-rows: auto min-content 1fr auto;
   grid-template-columns: 1fr auto 1fr;
-  column-gap: 0.5em;
+  column-gap: 1em;
   row-gap: 0.5em;
   height: 100vh;
   align-items: center;
@@ -55,9 +55,9 @@ h1 {
   grid-column: 3;
   grid-row: 2 / 4;
   justify-self: start;
-  display: grid;
+  /* display: grid;
   grid-template-columns: 1fr auto;
-  align-items: center;
+  align-items: center; */
   font-size: 1.5em;
   gap: 1em;
 }
@@ -120,6 +120,21 @@ div.cell {
 .cell[selectedBy="3"],
 .turnCounter[turn="3"]{
   background-color: olivedrab;
+}
+
+#messageContainer {
+  cursor:pointer;
+  position: fixed;
+  bottom: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 1em;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  border-radius: 8px;
+  display: none;
+  font-size: xx-large;
+  z-index: 1000;
 }
 
 /* 

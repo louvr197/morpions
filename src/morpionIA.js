@@ -2,16 +2,16 @@ export function morpionIATurn(board, player,level){
     console.log("morpionIATurn", player, level);
     switch(Number(level)){
         case 1:
-            console.log("IA1");
+            // console.log("IA1");
             return morpionAI1(board);
         case 2:
-            console.log("IA2");
+            // console.log("IA2");
             return morpionAI2(board, player);
         case 3:
-            console.log("IA3");
+            // console.log("IA3");
             return morpionAI3(board, player);
         case 4:
-            console.log("IA4");
+            // console.log("IA4");
             return morpionAI4(board, player);
     }
     return -1;
