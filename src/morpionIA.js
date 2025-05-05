@@ -21,37 +21,64 @@ function morpionAI2(board) {
   console.log("IA2");
   // Example logic for morpionAI2
   let emptyCells = getEmptyCells(board);
-  
+
   console.log("emptyCells", emptyCells);
   let center = Math.floor(board.length / 2);
-  
-  console.log("center",center, [center, center] in emptyCells);
-  if ([center, center] in emptyCells) {
+  //center
+  console.log("center", center, [center, center] in emptyCells);
+  if (emptyCells.some((cell) => cell[0] === center && cell[1] === center)) {
     return [center, center];
   }
-  if ([0, 0] in emptyCells) {
+  //corner
+  if (emptyCells.some((cell) => cell[0] === 0 && cell[1] === 0)) {
     console.log("0,0");
-    return [0, 0];}
-  if ([board.length - 1, board.length - 1]){
+    return [0, 0];
+  }
+  if (
+    emptyCells.some(
+      (cell) => cell[0] === board.length - 1 && cell[1] === board.length - 1
+    )
+  ) {
     console.log(board.length - 1, board.length - 1);
-    return [board.length - 1, board.length - 1];}
-  if ([0, board.length - 1] in emptyCells) {
-    console.log("0, board.length - 1");        
-    return [0, board.length - 1];}
-  if ([board.length - 1, 0] in emptyCells)
-{ 
+    return [board.length - 1, board.length - 1];
+  }
+  if (
+    emptyCells.some((cell) => cell[0] === 0 && cell[1] === board.length - 1)
+  ) {
+    console.log("0, board.length - 1");
+    return [0, board.length - 1];
+  }
+  if (
+    emptyCells.some((cell) => cell[0] === board.length - 1 && cell[1] === 0)
+  ) {
     console.log(board.length - 1, 0);
-        return [board.length - 1, 0];
-}  if ([0, center] in emptyCells){
+    return [board.length - 1, 0];
+  }
+  //edge
+  if (emptyCells.some((cell) => cell[0] === 0 && cell[1] === center)) {
     console.log("0, center");
-     return [0, center];}
-  if ([board.length - 1, center] in emptyCells){console.log(board.length - 1, center);
-    return [board.length - 1, center];}
-  if ([center, 0] in emptyCells) 
-  {console.log(center, 0);
-    return [center, 0];}
-  if ([center, board.length - 1] in emptyCells){console.log(center, board.length - 1);
-    return [center, board.length - 1];}
+    return [0, center];
+  }
+  if (
+    emptyCells.some(
+      (cell) => cell[0] === board.length - 1 && cell[1] === center
+    )
+  ) {
+    console.log(board.length - 1, center);
+    return [board.length - 1, center];
+  }
+  if (emptyCells.some((cell) => cell[0] === center && cell[1] === 0)) {
+    console.log(center, 0);
+    return [center, 0];
+  }
+  if (
+    emptyCells.some(
+      (cell) => cell[0] === center && cell[1] === board.length - 1
+    )
+  ) {
+    console.log(center, board.length - 1);
+    return [center, board.length - 1];
+  }
   if (emptyCells.length === 0) return -1;
   return emptyCells[0]; // Select the first empty cell
 }
