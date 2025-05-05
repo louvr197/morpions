@@ -89,6 +89,6 @@ function morpionAI1(board) {
   if (emptyCells.length == 0) return -1;
   let randomIndex = Math.floor(Math.random() * emptyCells.length);
   let selected = emptyCells[randomIndex];
-  console.log("selected", selected);
+  console.log("selected 1 ", selected);
   return selected;
 }
