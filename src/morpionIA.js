@@ -25,7 +25,7 @@ function morpionAI2(board) {
   console.log("emptyCells", emptyCells);
   let center = Math.floor(board.length / 2);
   
-  console.log("center",center);
+  console.log("center",center, [center, center] in emptyCells);
   if ([center, center] in emptyCells) {
     return [center, center];
   }
