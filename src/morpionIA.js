@@ -21,6 +21,8 @@ function morpionAI2(board) {
   console.log("IA2");
   // Example logic for morpionAI2
   let emptyCells = getEmptyCells(board);
+  
+  console.log("emptyCells", emptyCells);
   let center = Math.floor(board.length / 2);
   if ([center, center] in emptyCells) {
     console.log(center);
@@ -50,7 +52,6 @@ function morpionAI2(board) {
   if ([center, board.length - 1] in emptyCells){console.log(center, board.length - 1);
     return [center, board.length - 1];}
   if (emptyCells.length === 0) return -1;
-  console.log("emptyCells", emptyCells);
   return emptyCells[0]; // Select the first empty cell
 }
 
