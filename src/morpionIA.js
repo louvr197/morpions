@@ -21,7 +21,7 @@ function morpionAI2(board) {
     console.log("IA2");
     // Example logic for morpionAI2
     let emptyCells = getEmptyCells(board);
-    let center = floor(board.length/2);
+    let center = Math.floor(board.length/2);
     if([center,center] in emptyCells) { return [center,center]}
     if([0,0] in emptyCells) return [0,0];
     if([board.length-1,board.length-1]) return [board.length-1,board.length-1];
