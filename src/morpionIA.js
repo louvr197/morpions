@@ -6,7 +6,7 @@ export function morpionIATurn(board, player,level){
             return morpionAI1(board);
         case 2:
             // console.log("IA2");
-            return morpionAI2(board, player);
+            return morpionAI2(board);
         case 3:
             // console.log("IA3");
             return morpionAI3(board, player);
@@ -17,10 +17,20 @@ export function morpionIATurn(board, player,level){
     return -1;
 }
 
-function morpionAI2(board, player) {
+function morpionAI2(board) {
     console.log("IA2");
     // Example logic for morpionAI2
     let emptyCells = getEmptyCells(board);
+    let center = floor(board.length/2);
+    if([center,center] in emptyCells) { return [center,center]}
+    if([0,0] in emptyCells) return [0,0];
+    if([board.length-1,board.length-1]) return [board.length-1,board.length-1];
+    if([0,board.length-1] in emptyCells) return [0,board.length-1]; 
+    if([board.length-1,0] in emptyCells) return [board.length-1,0];
+    if([0,center] in emptyCells) return [0,center];
+    if([board.length-1,center] in emptyCells) return [board.length-1,center];
+    if([center,0] in emptyCells) return [center,0];
+    if([center,board.length-1] in emptyCells) return [center,board.length-1];
     if (emptyCells.length === 0) return -1;
     return emptyCells[0]; // Select the first empty cell
 }

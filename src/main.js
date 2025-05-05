@@ -212,8 +212,8 @@ function handleCellClick(newCell, row, col, nbCol) {
         "Player " +
           (boardState[result[0]][result[1]] + 1) +
           " has won on " +
-          result[0] +
-          result[1] +
+          result[0] + " "+
+          result[1] +" "+
           result[2]
       );
     }
@@ -222,7 +222,7 @@ function handleCellClick(newCell, row, col, nbCol) {
 
 // Gère la suppression des anciens mouvements
 function handleEraseLast(nbCol) {
-  if (history.length > 6) {
+  if (history.length > (nbCol-1)*nbCol) {
     let lastMove = history.shift();
     let lastCell = document.querySelector(
       "#cell" + (nbCol * lastMove[0] + lastMove[1])
@@ -273,12 +273,11 @@ function nextTurn(size) {
 }
 
 let whoseturn = document.createElement("div");
+whoseturn.classList.add("turnCounter");
 function updateTurncounter() {
   whoseturn.setAttribute("turn", turn % nbPlayer);
   whoseturn.innerText = "player " + (1 + (turn % nbPlayer));
-  whoseturn.classList.add("turnCounter");
 }
-
 app.appendChild(whoseturn);
 
 setupBoard(boardSize.value, boardSize.value);
