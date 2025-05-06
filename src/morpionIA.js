@@ -1,7 +1,7 @@
 import { findBestMove } from "./morpionLogic";
 
 export function morpionIATurn(board, player, level) {
-  console.log("morpionIATurn", player, level);
+//   console.log("morpionIATurn", player, level);
   switch (Number(level)) {
     case 1:
       // console.log("IA1");
@@ -92,6 +92,7 @@ function morpionAI3(board, player) {
   return bestMove.bestSpot; // Select the best move based on the logic in morpionLogic.js
 
   // Example logic for morpionAI3
+  
   let emptyCells = getEmptyCells(board);
   if (emptyCells.length === 0) return -1;
   return emptyCells[emptyCells.length - 1]; // Select the last empty cell
