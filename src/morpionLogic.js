@@ -44,7 +44,7 @@ function checkDirection(board, row, col, size, player, direction) {
           count++;
         } else if (cPlayer === board[r][c]) {
           count++;
-        } else {
+        } else if (cPlayer !== board[r][c]) {
           count = 0;
           break;
         }
