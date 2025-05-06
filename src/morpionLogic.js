@@ -3,10 +3,22 @@ function checkDirection(board, row, col, size, player, direction) {
   let bestSpot = [row, col];
   let cPlayer = board[row][col];
   let count = 0;
-  if (direction === "h" && size+row >= board.length) return {"count":-1,bestSpot,cPlayer} ; // Horizontal
-  if (direction === "v" && size+col >= board[row].length) return {"count":-1,bestSpot,cPlayer} ; // Vertical
-  if (direction === "dd" && size+row >= board.length) return {"count":-1,bestSpot,cPlayer} ; // Descending diagonal 
-  if (direction === "dd" && size+col >= board[row].length) return {"count":-1,bestSpot,cPlayer} ; // Descending diagonal
+  if (direction === "h" && size+row >= board.length) {
+    console.log("Horizontal out of bounds");
+    return {"count":-1,bestSpot,cPlayer} ; // Horizontal
+  }
+  if (direction === "v" && size+col >= board[row].length){
+    console.log("Vertical out of bounds");
+    return {"count":-1,bestSpot,cPlayer} ; // Vertical
+  }
+  if (direction === "dd" && size+row >= board.length){
+    console.log("Descending diagonal out of bounds");
+    return {"count":-1,bestSpot,cPlayer} ; // Descending diagonal
+    } 
+  if (direction === "dd" && size+col >= board[row].length){
+    console.log("Descending diagonal out of bounds");
+    return {"count":-1,bestSpot,cPlayer} ; // Descending diagonal
+    }
 
   for (let i = 0; i < size; i++) {
     let r = row,
