@@ -79,7 +79,7 @@ export function findBestMove(board, player, size = 3) {
   let bestSpot = [0, 0];
   for (let row = 0; row < board.length; row++) {
     for (let col = 0; col < board[row].length; col++) {
-      const directions = ["h", "v", "dd", "da"];
+      const directions = ["h", "v", "dd", "da"].sort(() => Math.random() - 0.5);
       for (const direction of directions) {
         const {
           count,
@@ -96,6 +96,9 @@ export function findBestMove(board, player, size = 3) {
       }
     }
   }
-console.log("Best move:", bestMove, "Best spot:", bestSpot);
-  return {"besMove":bestMove, "bestSpot":bestSpot};
+  if (score === 0) {
+    bestSpot = [Math.floor(size/2), Math.floor(size/2)];
+  }
+// console.log("Best move:", bestMove, "Best spot:", bestSpot);
+  return {"bestMove":bestMove, "bestSpot":bestSpot};
 }
