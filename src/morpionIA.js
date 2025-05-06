@@ -88,7 +88,7 @@ function morpionAI2(board) {
 function morpionAI3(board, player) {
   console.log("IA3");
   let bestMove = findBestMove(board, player);
-  return bestMove[0]; // Select the best move based on the logic in morpionLogic.js
+  return bestMove.bestSpot; // Select the best move based on the logic in morpionLogic.js
 
   // Example logic for morpionAI3
   let emptyCells = getEmptyCells(board);
