@@ -11,13 +11,13 @@ function checkDirection(board, row, col, size, player, direction) {
     // console.log("Vertical out of bounds");
     return {"count":-1,bestSpot,cPlayer} ; // Vertical
   }
-  if (direction === "dd" && size+row >= board.length){
+  if (direction === "dd" && (size+row >= board.length || size+col >= board[row].length)) {
     // console.log("Descending diagonal out of bounds");
     return {"count":-1,bestSpot,cPlayer} ; // Descending diagonal
     } 
-  if (direction === "dd" && size+col >= board[row].length){
-    // console.log("Descending diagonal out of bounds");
-    return {"count":-1,bestSpot,cPlayer} ; // Descending diagonal
+  if (direction === "da" && (size+col >= board[row].length|| row - size < 0)) {
+    // console.log("Ascending diagonal out of bounds");
+    return {"count":-1,bestSpot,cPlayer} ; // Ascending diagonal
     }
 
   for (let i = 0; i < size; i++) {
