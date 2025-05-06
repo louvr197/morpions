@@ -96,7 +96,9 @@ export function findBestMove(board, player, size = 3) {
       }
     }
   }
-  if (score === 0) {
+  if (score === 0 || board[Math.floor(size/2)][ Math.floor(size/2)]=== "") {
+    // If no score, select the center cell if it's empty
+    // console.log("Center cell is empty, selecting it as the best move.");
     bestSpot = [Math.floor(size/2), Math.floor(size/2)];
   }
 // console.log("Best move:", bestMove, "Best spot:", bestSpot);
