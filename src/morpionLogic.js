@@ -3,7 +3,7 @@ function checkDirection(board, row, col, size, player, direction) {
   let bestSpot = [row, col];
   let cPlayer = board[row][col];
   let count = 0;
-
+console.log("checkDirection", row, col, size, player, direction);
   for (let i = 0; i < size; i++) {
     let r = row,
       c = col;
@@ -73,11 +73,11 @@ export function hasWonOn(board, size = 3) {
   return empty ? -1 : 0; // Return -1 if no winner but the board is not full, 0 if it's a tie
 }
 
-export function findBestMove(board, size = 3, player) {
+export function findBestMove(board, player, size = 3) {
   let score = 0;
   let bestMove = [];
   let bestSpot = [0, 0];
-
+console.log("findBestMove", player, size);
   for (let row = 0; row < board.length; row++) {
     for (let col = 0; col < board[row].length; col++) {
       const directions = ["h", "v", "dd", "da"];
