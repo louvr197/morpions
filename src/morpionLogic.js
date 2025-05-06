@@ -78,6 +78,7 @@ export function hasWonOn(board, size = 3) {
             board[row][col],
             direction
           );
+          console.log("row",row,"col",col,"Direction", direction, "Count", count);
           if (count === size) {
             return [row, col, direction]; // Winner found
           }
