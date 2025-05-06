@@ -104,7 +104,7 @@ function morpionAI3(board, player) {
 
   if (emptyCells.length === 0) return -1;
   // Select the last empty cell
-  return emptyCells[emptyCells.length - 1]; // Select the last empty cell
+  return emptyCells[Math.floor(emptyCells.length * Math.random())]; // Select the last empty cell
 }
 
 function morpionAI4(board, player) {
