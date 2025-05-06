@@ -1,22 +1,25 @@
 function checkDirection(board, row, col, size, player, direction) {
   let score = 0;
-  let bestSpot = [row, col];
+  let bestSpot = [];
   let cPlayer = board[row][col];
+  if (cPlayer === "") { 
+    bestSpot = [row, col]; // If the cell is empty, set it as the best spot
+  }
   let count = 0;
   if (direction === "h" && size+row >= board.length) {
-    console.log("Horizontal out of bounds");
+    // console.log("Horizontal out of bounds");
     return {"count":-1,bestSpot,cPlayer} ; // Horizontal
   }
   if (direction === "v" && size+col >= board[row].length){
-    console.log("Vertical out of bounds");
+    // console.log("Vertical out of bounds");
     return {"count":-1,bestSpot,cPlayer} ; // Vertical
   }
   if (direction === "dd" && size+row >= board.length){
-    console.log("Descending diagonal out of bounds");
+    // console.log("Descending diagonal out of bounds");
     return {"count":-1,bestSpot,cPlayer} ; // Descending diagonal
     } 
   if (direction === "dd" && size+col >= board[row].length){
-    console.log("Descending diagonal out of bounds");
+    // console.log("Descending diagonal out of bounds");
     return {"count":-1,bestSpot,cPlayer} ; // Descending diagonal
     }
 
@@ -112,10 +115,17 @@ export function findBestMove(board, player, size = 3) {
       }
     }
   }
-  if (score === 0 || board[Math.floor(size/2)][ Math.floor(size/2)]=== "") {
+  if (score === 0 || board[Math.floor(size/2)][Math.floor(size/2)] === "") {
     // If no score, select the center cell if it's empty
-    // console.log("Center cell is empty, selecting it as the best move.");
-    bestSpot = [Math.floor(size/2), Math.floor(size/2)];
+    const centerSpot = [Math.floor(size / 2), Math.floor(size / 2)];
+    if (board[centerSpot[0]][centerSpot[1]] === "") {
+      bestSpot = centerSpot;
+    }
+  }
+
+  // Ensure the bestSpot is empty before returning it
+  if (board[bestSpot[0]][bestSpot[1]] !== "") {
+    bestSpot = []; // Reset bestSpot if it's occupied
   }
 // console.log("Best move:", bestMove, "Best spot:", bestSpot);
   return {"bestMove":bestMove, "bestSpot":bestSpot, "score":score}; // Return the best move and its score
