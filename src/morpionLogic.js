@@ -86,9 +86,7 @@ export function findBestMove(board, player, size = 3) {
           bestSpot: spot,
           cPlayer,
         } = checkDirection(board, row, col, size, player, direction);
-console.log(
-          `Row: ${row}, Col: ${col}, Direction: ${direction}, Count: ${count}, Player: ${cPlayer}`
-        );
+
 
         if (count > score || (count === score && player === cPlayer)) {
           score = count;
@@ -98,6 +96,6 @@ console.log(
       }
     }
   }
-
+console.log("Best move:", bestMove, "Best spot:", bestSpot);
   return [bestMove, bestSpot];
 }
