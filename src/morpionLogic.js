@@ -53,7 +53,7 @@ function checkDirection(board, row, col, size, player, direction) {
         bestSpot = [r, c];
       }
     } else {
-      console.log("Out of bounds", r, c, board);
+      console.log("Out of bounds", r, c, board,direction);
       score = 0;
       break;
     }
