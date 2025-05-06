@@ -102,5 +102,5 @@ export function findBestMove(board, player, size = 3) {
     bestSpot = [Math.floor(size/2), Math.floor(size/2)];
   }
 // console.log("Best move:", bestMove, "Best spot:", bestSpot);
-  return {"bestMove":bestMove, "bestSpot":bestSpot};
+  return {"bestMove":bestMove, "bestSpot":bestSpot, "score":score}; // Return the best move and its score
 }
