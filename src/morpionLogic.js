@@ -1,8 +1,8 @@
 function checkDirection(board, row, col, size, player, direction) {
-  let score = 0;
+
   let bestSpot = [row, col];
   let cPlayer = board[row][col];
-  let count = 0;
+  let score = 0;
   if (direction === "h" && size+row >= board.length) {
     // console.log("Horizontal out of bounds");
     return {"count":-1,bestSpot,cPlayer} ; // Horizontal
@@ -41,25 +41,25 @@ function checkDirection(board, row, col, size, player, direction) {
       if (board[r][c] !== "") {
         if (cPlayer === "") {
           cPlayer = board[r][c];
-          count++;
+          score++;
         } else if (cPlayer === board[r][c]) {
-          count++;
+          score++;
         } else if (cPlayer !== board[r][c]) {
           console.log("Different player", cPlayer, board[r][c]);
-          count = 0;
+          score = 0;
           break;
         }
       } else {
         bestSpot = [r, c];
       }
     } else {
-      console.log("Out of bounds", r, c, board.length, board[r].length);
-      count = 0;
+      console.log("Out of bounds", r, c, board);
+      score = 0;
       break;
     }
   }
 
-  return { count, bestSpot, cPlayer };
+  return { count: score, bestSpot, cPlayer };
 }
 
 export function hasWonOn(board, size = 3) {
