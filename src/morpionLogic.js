@@ -45,6 +45,7 @@ function checkDirection(board, row, col, size, player, direction) {
         } else if (cPlayer === board[r][c]) {
           count++;
         } else if (cPlayer !== board[r][c]) {
+          console.log("Different player", cPlayer, board[r][c]);
           count = 0;
           break;
         }
@@ -52,6 +53,7 @@ function checkDirection(board, row, col, size, player, direction) {
         bestSpot = [r, c];
       }
     } else {
+      console.log("Out of bounds 2");
       count = 0;
       break;
     }
