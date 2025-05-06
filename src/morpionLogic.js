@@ -3,7 +3,7 @@ function checkDirection(board, row, col, size, player, direction) {
   let bestSpot = [row, col];
   let cPlayer = board[row][col];
   let count = 0;
-console.log("checkDirection", row, col, size, player, direction);
+
   for (let i = 0; i < size; i++) {
     let r = row,
       c = col;
@@ -77,7 +77,6 @@ export function findBestMove(board, player, size = 3) {
   let score = 0;
   let bestMove = [];
   let bestSpot = [0, 0];
-console.log("findBestMove", player, size);
   for (let row = 0; row < board.length; row++) {
     for (let col = 0; col < board[row].length; col++) {
       const directions = ["h", "v", "dd", "da"];
@@ -87,6 +86,9 @@ console.log("findBestMove", player, size);
           bestSpot: spot,
           cPlayer,
         } = checkDirection(board, row, col, size, player, direction);
+console.log(
+          `Row: ${row}, Col: ${col}, Direction: ${direction}, Count: ${count}, Player: ${cPlayer}`
+        );
 
         if (count > score || (count === score && player === cPlayer)) {
           score = count;
